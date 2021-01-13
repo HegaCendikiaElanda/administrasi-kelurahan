@@ -11,7 +11,7 @@
                     <div class="card bg-primary text-white mb-4">
                         <div class="card-body">Data Warga</div>
                         <div class="card-footer d-flex align-items-center justify-content-between">
-                            <a class="small text-white stretched-link" href="<?php echo site_url(); ?>/warga">View Details</a>
+                            <a class="small text-white stretched-link" href="<?php echo base_url('warga'); ?>">View Details</a>
                             <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                                     <th>Salary</th>
                                 </tr>
                             </thead>
-                            <tfoot>
+                            <!-- <tfoot>
                                 <tr>
                                     <th>Name</th>
                                     <th>Position</th>
@@ -91,7 +91,7 @@
                                     <th>Start date</th>
                                     <th>Salary</th>
                                 </tr>
-                            </tfoot>
+                            </tfoot> -->
                             <tbody>
                                 <tr>
                                     <td>Tiger Nixon</td>

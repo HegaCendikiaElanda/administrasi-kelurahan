@@ -7,9 +7,10 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Dashboard - Administrasi Kelurahan</title>
-        <link href="<?php echo base_url(); ?>css/styles.css" rel="stylesheet" />
+        <link href="<?php echo base_url('css/styles.css'); ?>" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-light bg-light">
@@ -53,7 +54,7 @@
                                 Permohonan SKCK
                             </a>
                             <div class="sb-sidenav-menu-heading">Data</div>
-                            <a class="nav-link" href="charts.html">
+                            <a class="nav-link" href="<?php echo base_url('warga'); ?>">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Data Warga
                             </a>
@@ -65,7 +66,7 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Start Bootstrap
+                        Admin
                     </div>
                 </nav>
             </div>

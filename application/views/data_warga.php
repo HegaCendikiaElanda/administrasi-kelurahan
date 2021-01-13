@@ -6,7 +6,7 @@
                 <li class="breadcrumb-item active">Dashboard</li>
                 <li class="breadcrumb-item active">Data Warga</li>
             </ol>
-            <p>Selamat datang di aplikasi administrasi kelurahan</p>
+            <a href="<?php echo base_url('warga/tambah');?>" class="btn btn-info mb-4"> Tambah Data</a>
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table mr-1"></i>
@@ -38,8 +38,8 @@
                                       <td>".$data->status_perkawinan."</td>
                                       <td>
                                       <div class='btn-group'>
-                                        <a type='button' class='btn btn-warning' href='".base_url("index.php/kas/ubah/".$data->id_warga)."'>Ubah</a>
-                                        <a type='button' class='btn btn-danger'href='".base_url("index.php/kas/hapus/".$data->id_warga)."'>Hapus</a>
+                                        <a type='button' class='btn btn-warning' href='".base_url("warga/ubah/".$data->id_warga)."'>Ubah</a>
+                                        <a type='button' class='btn btn-danger'href='".base_url("warga/hapus/".$data->id_warga)."'>Hapus</a>
                                         
                                       </div>
                                         
