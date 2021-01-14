@@ -7,7 +7,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Login - Administrasi Kelurahan</title>
-        <link href="<?php echo base_url(); ?>css/styles.css" rel="stylesheet" />
+        <link href="<?php echo base_url('css/styles.css'); ?>" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="bg-primary">
@@ -18,31 +18,24 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
-                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Selamat Datang di Administrasi Kelurahan</h3></div>
                                     <div class="card-body">
-                                        <form action="<?= site_url('login') ?>" method="POST">
+                                        <form action="<?= base_url('auth'); ?>" method="POST">
+                                            <?= $this->session->flashdata('message') ;?>
                                             <div class="form-group">
-                                                <label class="small mb-1" for="inputEmailAddress">Email</label>
-                                                <input class="form-control py-4" id="inputEmailAddress" type="email" placeholder="Enter email address" />
+                                                <label class="small mb-1" for="input_username">Username</label>
+                                                <input class="form-control py-4" id="input_username" name="input_username" type="text" placeholder="Masukan username" value="<?php echo set_value('input_username') ?>"/>
+                                                <?= form_error('input_username','<small class="text-danger pl-3">','</small>');?>
                                             </div>
                                             <div class="form-group">
                                                 <label class="small mb-1" for="inputPassword">Password</label>
-                                                <input class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password" />
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="custom-control custom-checkbox">
-                                                    <input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" />
-                                                    <label class="custom-control-label" for="rememberPasswordCheck">Remember password</label>
-                                                </div>
+                                                <input class="form-control py-4" id="input_password" name="input_password" type="password" placeholder="Masukan password" />
+                                                <?= form_error('input_password','<small class="text-danger pl-3">','</small>');?>
                                             </div>
                                             <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="password.html">Forgot Password?</a>
-                                                <input type="submit" class="btn btn-primary" value="Login">Login</input>
+                                                <input type="submit" class="btn btn-primary" value="Login">
                                             </div>
                                         </form>
-                                    </div>
-                                    <div class="card-footer text-center">
-                                        <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -62,6 +55,6 @@
         </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="<?php echo base_url(); ?>js/scripts.js"></script>
+        <script src="<?php echo base_url('js/scripts.js'); ?>"></script>
     </body>
 </html>

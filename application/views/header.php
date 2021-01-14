@@ -21,7 +21,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="<?php site_url('login/logout') ?>">Logout</a>
+                        <a class="dropdown-item" href="<?php echo base_url('auth/logout') ?>">Logout</a>
                     </div>
                 </li>
             </ul>
@@ -33,23 +33,23 @@
                         <div class="nav">
                             </a>
                             <div class="sb-sidenav-menu-heading">Permohonan Surat</div>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="<?php echo base_url('permohonan_ktp') ?>">
                                 <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                                 Permohonan KTP
                             </a>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="<?php echo base_url('permohonan_kk') ?>">
                                 <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
                                 Permohonan KK
                             </a>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="<?php echo base_url('permohonan_domisili') ?>">
                                 <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
                                 Permohonan Domisili
                             </a>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="<?php echo base_url('permohonan_pindah') ?>">
                                 <div class="sb-nav-link-icon"><i class="fas fa-map"></i></div>
                                 Permohonan Pindah
                             </a>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="<?php echo base_url('permohonan_skck') ?>">
                                 <div class="sb-nav-link-icon"><i class="fas fa-file"></i></div>
                                 Permohonan SKCK
                             </a>
@@ -66,7 +66,7 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Admin
+                        <?php echo $this->session->userdata('nama'); ?>
                     </div>
                 </nav>
             </div>

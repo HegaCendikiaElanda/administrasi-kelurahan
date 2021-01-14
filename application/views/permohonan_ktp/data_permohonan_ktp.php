@@ -1,16 +1,16 @@
 <div id="layoutSidenav_content">
     <main>
         <div class="container-fluid">
-            <h1 class="mt-4">Data Warga</h1>
+            <h1 class="mt-4">Data Permohonan KTP</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item active">Dashboard</li>
-                <li class="breadcrumb-item active">Data Warga</li>
+                <li class="breadcrumb-item active">Data Permohonan KTP</li>
             </ol>
             <a href="<?php echo base_url('warga/tambah');?>" class="btn btn-info mb-4"> Tambah Data</a>
             <div class="card mb-4">
                 <div class="card-header">
                     <i class="fas fa-table mr-1"></i>
-                    Data Warga
+                    Data Permohonan KTP
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">

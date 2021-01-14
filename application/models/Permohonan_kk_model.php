@@ -1,15 +1,15 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
-class Warga_model extends CI_Model
+class Permohonan_kk_model extends CI_Model
 {
 	public function view(){
-		return $this->db->get('warga')->result();
+		return $this->db->get('permohonan_kk')->result();
 	}
 
 	public function validation($mode){
 		$this->load->library('form_validation');
 		if ($mode == "save"){
 			$this->form_validation->set_rules('input_nama','Nama','required');
-			$this->form_validation->set_rules('input_nik','NIK','required|numeric|max_length[16]|is_unique[warga.nik]');
+			$this->form_validation->set_rules('input_nik','NIK','required|numeric|max_length[16]');
 			$this->form_validation->set_rules('input_alamat','Alamat','required');
 			$this->form_validation->set_rules('input_tempat_lahir','Tempat Lahir','required');
 			$this->form_validation->set_rules('input_tanggal_lahir','Tanggal Lahir','required');
@@ -48,12 +48,12 @@ class Warga_model extends CI_Model
 			"status_perkawinan" => $this->input->post('input_status')
 			
 		);
-		$this->db->insert('warga',$data);
+		$this->db->insert('permohonan_kk',$data);
 	}
 
 	public function view_by($id){
-		$this->db->where('id_warga',$id);
-		return $this->db->get('warga')->row();
+		$this->db->where('id_permohonan_kk',$id);
+		return $this->db->get('permohonan_kk')->row();
 	}
 
 	public function edit($id){
@@ -67,15 +67,14 @@ class Warga_model extends CI_Model
 			"pendidikan" => $this->input->post('input_pendidikan'),
 			"agama" => $this->input->post('input_agama'),
 			"status_perkawinan" => $this->input->post('input_status')
-			
 		);
-		$this->db->where('id_warga',$id);
-		$this->db->update('warga',$data);
+		$this->db->where('id_permohonan_kk',$id);
+		$this->db->update('permohonan_kk',$data);
 	}
 
 	public function delete($id){
-		$this->db->where('id_warga',$id);
-		$this->db->delete('warga');
+		$this->db->where('id_permohonan_kk',$id);
+		$this->db->delete('permohonan_kk');
 	}
 
 }
