@@ -58,7 +58,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Data Warga
                             </a>
-                            <a class="nav-link" href="tables.html">
+                            <a class="nav-link" href="<?php echo base_url('pegawai'); ?>">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Data Pegawai
                             </a>

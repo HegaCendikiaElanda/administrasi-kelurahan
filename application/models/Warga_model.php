@@ -51,4 +51,31 @@ class Warga_model extends CI_Model
 		$this->db->insert('warga',$data);
 	}
 
+	public function view_by($id){
+		$this->db->where('id_warga',$id);
+		return $this->db->get('warga')->row();
+	}
+
+	public function edit($id){
+		$data = array(
+			"nama" => $this->input->post('input_nama'),
+			"nik" => $this->input->post('input_nik'),
+			"alamat" => $this->input->post('input_alamat'),
+			"tempat_lahir" => $this->input->post('input_tempat_lahir'),
+			"tanggal_lahir" => $this->input->post('input_tanggal_lahir'),
+			"pekerjaan" => $this->input->post('input_pekerjaan'),
+			"pendidikan" => $this->input->post('input_pendidikan'),
+			"agama" => $this->input->post('input_agama'),
+			"status_perkawinan" => $this->input->post('input_status')
+			
+		);
+		$this->db->where('id_warga',$id);
+		$this->db->update('warga',$data);
+	}
+
+	public function delete($id){
+		$this->db->where('id_warga',$id);
+		$this->db->delete('warga');
+	}
+
 }

@@ -11,7 +11,7 @@ class Warga extends CI_Controller {
     {
     	$data['warga'] = $this->Warga_model->view();
     	$this->load->view('header');
-        $this->load->view('data_warga',$data);
+        $this->load->view('warga/data_warga',$data);
         $this->load->view('footer');
     }
 
@@ -23,7 +23,26 @@ class Warga extends CI_Controller {
             }
         }
         $this->load->view('header');
-        $this->load->view('tambah_warga');
+        $this->load->view('warga/tambah_warga');
         $this->load->view('footer');
     }
+
+    public function ubah($id){
+        if ($this->input->post('submit')) {
+            if ($this->Warga_model->validation("update")) {
+                $this->Warga_model->edit($id);
+                redirect('warga');
+            }
+        }
+        $data['warga'] = $this->Warga_model->view_by($id);
+        $this->load->view('header');
+        $this->load->view('warga/ubah_warga',$data);
+        $this->load->view('footer');
+    }
+
+    public function hapus($id){
+        $this->Warga_model->delete($id);
+        redirect('warga');
+    }
+
 }
