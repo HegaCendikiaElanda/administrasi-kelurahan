@@ -9,6 +9,9 @@ class Permohonan_ktp extends CI_Controller {
 
     public function index() 
     {
+        if (!$this->session->has_userdata('id_pegawai')) {
+            redirect('auth');
+        }
     	$data['permohonan_ktp'] = $this->Permohonan_ktp_model->view();
     	$this->load->view('header');
         $this->load->view('permohonan_ktp/data_permohonan_ktp',$data);
@@ -17,10 +20,13 @@ class Permohonan_ktp extends CI_Controller {
 
     public function tambah(){
         if ($this->input->post('submit')) {
-            if ($this->Permohonan_ktp_model->validation("save")) {
-                $this->Permohonan_ktp_model->save();
-                redirect('permohonan_ktp');
+            if($this->Permohonan_ktp_model->cek_nik($this->input->post('input_nik'))){
+                if ($this->Permohonan_ktp_model->validation("save")) {
+                    $this->Permohonan_ktp_model->save();
+                    redirect('permohonan_ktp');
+                }
             }
+            $this->session->set_flashdata('pesan','<div class="alert alert-danger" role="alert">NIK tidak ada!</div>');
         }
         $this->load->view('header');
         $this->load->view('permohonan_ktp/tambah_permohonan_ktp');
@@ -29,10 +35,13 @@ class Permohonan_ktp extends CI_Controller {
 
     public function ubah($id){
         if ($this->input->post('submit')) {
-            if ($this->Permohonan_ktp_model->validation("update")) {
-                $this->Permohonan_ktp_model->edit($id);
-                redirect('permohonan_ktp');
+            if($this->Permohonan_ktp_model->cek_nik($this->input->post('input_nik'))){
+                if ($this->Permohonan_ktp_model->validation("update")) {
+                    $this->Permohonan_ktp_model->edit($id);
+                    redirect('permohonan_ktp');
+                }
             }
+            $this->session->set_flashdata('pesan','<div class="alert alert-danger" role="alert">NIK tidak ada!</div>');
         }
         $data['permohonan_ktp'] = $this->Permohonan_ktp_model->view_by($id);
         $this->load->view('header');

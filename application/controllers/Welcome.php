@@ -25,6 +25,9 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
+		if (!$this->session->has_userdata('id_pegawai')) {
+            redirect('auth');
+        }
 		$this->load->view('header');
 		$this->load->view('dashboard');
 		$this->load->view('footer');

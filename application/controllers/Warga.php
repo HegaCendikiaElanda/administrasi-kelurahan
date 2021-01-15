@@ -9,6 +9,9 @@ class Warga extends CI_Controller {
 
     public function index() 
     {
+        if (!$this->session->has_userdata('id_pegawai')) {
+            redirect('auth');
+        }
     	$data['warga'] = $this->Warga_model->view();
     	$this->load->view('header');
         $this->load->view('warga/data_warga',$data);

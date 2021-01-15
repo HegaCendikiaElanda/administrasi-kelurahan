@@ -9,6 +9,9 @@ class Pegawai extends CI_Controller {
 
     public function index() 
     {
+        if (!$this->session->has_userdata('id_pegawai')) {
+            redirect('auth');
+        }
     	$data['pegawai'] = $this->Pegawai_model->view();
     	$this->load->view('header');
         $this->load->view('pegawai/data_pegawai',$data);

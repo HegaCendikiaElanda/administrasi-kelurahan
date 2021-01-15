@@ -34,7 +34,7 @@ class Pegawai_model extends CI_Model
 			"nama" => $this->input->post('input_nama'),
 			"nip" => $this->input->post('input_nip'),
 			"username" => $this->input->post('input_username'),
-			"password" => $this->input->post('input_password'),
+			"password" => password_hash($this->input->post('input_password'), PASSWORD_DEFAULT),
 			"no_hp" => $this->input->post('input_no_hp'),
 			"email" => $this->input->post('input_email')
 		);

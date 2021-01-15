@@ -20,7 +20,7 @@ class Warga_model extends CI_Model
 		}
 		if ($mode == "update"){
 			$this->form_validation->set_rules('input_nama','Nama','required');
-			$this->form_validation->set_rules('input_nik','NIK','required|numeric|max_length[16]');
+			$this->form_validation->set_rules('input_nik','NIK','required');
 			$this->form_validation->set_rules('input_alamat','Alamat','required');
 			$this->form_validation->set_rules('input_tempat_lahir','Tempat Lahir','required');
 			$this->form_validation->set_rules('input_tanggal_lahir','Tanggal Lahir','required');
@@ -29,7 +29,7 @@ class Warga_model extends CI_Model
 			$this->form_validation->set_rules('input_agama','Agama','required');
 			$this->form_validation->set_rules('input_status','Status Perkawinan','required');
 		}
-		if ($this->form_validation->run()) 
+		if ($this->form_validation->run())
 			return TRUE;
 		else
 			return FALSE;
@@ -67,7 +67,7 @@ class Warga_model extends CI_Model
 			"pendidikan" => $this->input->post('input_pendidikan'),
 			"agama" => $this->input->post('input_agama'),
 			"status_perkawinan" => $this->input->post('input_status')
-			
+
 		);
 		$this->db->where('id_warga',$id);
 		$this->db->update('warga',$data);
