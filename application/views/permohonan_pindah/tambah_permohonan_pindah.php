@@ -17,17 +17,14 @@
                         <?php echo form_open("permohonan_pindah/tambah"); ?>
                         <?= $this->session->flashdata('pesan') ;?>
                         <div class="form-group">
-                         <label for="input_nik">NIK Pemohon pindah</label>
-                        <div class="input-group mb-3">
-                          <input type="text" class="form-control" placeholder="Isi dengan NIK pemohon" placeholder="Isi dengan nomor induk kependudukan" name="input_nik" value="<?php echo set_value('input_nik'); ?>" required>
-                          <!-- <div class="input-group-append">
-                            <input type="submit" class="btn btn-info" name="cek_nik" value="Cek">
-                          </div> -->
-                        </div>
+                            <label for="input_nik">NIK Pemohon pindah</label>
+                            <input type="text" class="form-control" placeholder="Isi dengan NIK pemohon" placeholder="Isi dengan nomor induk kependudukan" name="input_nik" value="<?php echo set_value('input_nik'); ?>">
+                            <?= form_error('input_nik','<small class="text-danger pl-3">','</small>');?>
                         </div>
                         <div class="form-group">
                             <label for="nama">Tanggal Pengajuan Pindah</label>
                             <input type="date" class="form-control" name="input_tanggal" value="<?php echo date('Y-m-d'); ?>" readonly>
+                            <?= form_error('input_tanggal','<small class="text-danger pl-3">','</small>');?>
                         </div>
 						<div class="form-group">
                             <label for="nama">lokasi pindah</label>

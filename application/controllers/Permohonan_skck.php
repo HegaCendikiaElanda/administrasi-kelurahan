@@ -18,8 +18,11 @@ class Permohonan_skck extends CI_Controller {
     public function tambah(){
         if ($this->input->post('submit')) {
             if ($this->Permohonan_skck_model->validation("save")) {
-                $this->Permohonan_skck_model->save();
-                redirect('permohonan_skck');
+                if($this->Permohonan_skck_model->cek_nik($this->input->post('input_nik'))){
+                    $this->Permohonan_skck_model->save();
+                    redirect('permohonan_skck');
+                }
+                $this->session->set_flashdata('pesan','<div class="alert alert-danger" role="alert">NIK tidak ada!</div>');
             }
         }
         $this->load->view('header');
@@ -30,8 +33,11 @@ class Permohonan_skck extends CI_Controller {
     public function ubah($id){
         if ($this->input->post('submit')) {
             if ($this->Permohonan_skck_model->validation("update")) {
-                $this->Permohonan_skck_model->edit($id);
-                redirect('permohonan_skck');
+                if($this->Permohonan_skck_model->cek_nik($this->input->post('input_nik'))){
+                    $this->Permohonan_skck_model->edit($id);
+                    redirect('permohonan_skck');
+                }
+                $this->session->set_flashdata('pesan','<div class="alert alert-danger" role="alert">NIK tidak ada!</div>');
             }
         }
         $data['permohonan_skck'] = $this->Permohonan_skck_model->view_by($id);

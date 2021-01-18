@@ -13,13 +13,13 @@ class Permohonan_pindah_model extends CI_Model
         $this->load->library('form_validation');
         if ($mode == "save"){
             $this->form_validation->set_rules('input_tanggal','Tanggal','required');
-            $this->form_validation->set_rules('input_nik','NIK','required');
+            $this->form_validation->set_rules('input_nik','NIK','required|numeric|exact_length[16]');
             $this->form_validation->set_rules('input_lokasi_pindah','Lokasi Pindah','required');
             
         }
         if ($mode == "update"){
             $this->form_validation->set_rules('input_tanggal','Tanggal','required');
-            $this->form_validation->set_rules('input_nik','NIK','required');
+            $this->form_validation->set_rules('input_nik','NIK','required|numeric|exact_length[16]');
             $this->form_validation->set_rules('input_lokasi_pindah','Lokasi Pindah','required');
         }
         if ($this->form_validation->run()) 

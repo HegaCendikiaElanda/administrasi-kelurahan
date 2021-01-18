@@ -19,14 +19,16 @@
                         <div class="form-group">
                             <label for="input_nik">NIK Pemohon pindah</label>
                             <input type="text" class="form-control" placeholder="Isi dengan NIK pemohon" placeholder="Isi dengan nomor induk kependudukan" name="input_nik" value="<?php echo set_value('input_nik',$permohonan_pindah->nik); ?>">
+                            <?= form_error('input_nik','<small class="text-danger pl-3">','</small>');?>
                         </div>
                         <div class="form-group">
                             <label for="input_tanggal">Tanggal Pengajuan</label>
                             <input type="date" class="form-control" name="input_tanggal" value="<?php echo set_value('input_tanggal',$permohonan_pindah->tanggal); ?>">
+                            <?= form_error('input_tanggal','<small class="text-danger pl-3">','</small>');?>
                         </div>
 						<div class="form-group">
                             <label for="nama">lokasi pindah</label>
-                            <input type="text" class="form-control" placeholder="Isi dengan lokasi pindah Anda" name="input_lokasi_pindah" value="<?php echo set_value('input_lokasi_pindah'); ?>">
+                            <input type="text" class="form-control" placeholder="Isi dengan lokasi pindah Anda" name="input_lokasi_pindah" value="<?php echo set_value('input_lokasi_pindah', $permohonan_pindah->lokasi_pindah); ?>">
                             <?= form_error('input_lokasi_pindah','<small class="text-danger pl-3">','</small>');?>
                         </div>
                         <input type="submit" name="submit" value="Simpan" class="btn btn-primary">

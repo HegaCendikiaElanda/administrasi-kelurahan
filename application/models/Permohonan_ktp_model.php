@@ -13,11 +13,11 @@ class Permohonan_ktp_model extends CI_Model
 		$this->load->library('form_validation');
 		if ($mode == "save"){
 			$this->form_validation->set_rules('input_tanggal','Tanggal','required');
-			$this->form_validation->set_rules('input_nik','Warga','required');
+			$this->form_validation->set_rules('input_nik','NIK','required|numeric|exact_length[16]');
 		}
 		if ($mode == "update"){
 			$this->form_validation->set_rules('input_tanggal','Tanggal','required');
-			$this->form_validation->set_rules('input_nik','Warga','required');
+			$this->form_validation->set_rules('input_nik','NIK','required|numeric|exact_length[16]');
 		}
 		if ($this->form_validation->run()) 
 			return TRUE;

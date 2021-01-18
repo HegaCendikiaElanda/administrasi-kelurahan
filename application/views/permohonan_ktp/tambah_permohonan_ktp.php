@@ -18,16 +18,13 @@
                         <?= $this->session->flashdata('pesan') ;?>
                         <div class="form-group">
                         <label for="input_nik">NIK Pemohon KTP</label>
-                        <div class="input-group mb-3">
-                          <input type="text" class="form-control" placeholder="Isi dengan NIK pemohon" placeholder="Isi dengan nomor induk kependudukan" name="input_nik" value="<?php echo set_value('input_nik'); ?>" required>
-                          <!-- <div class="input-group-append">
-                            <input type="submit" class="btn btn-info" name="cek_nik" value="Cek">
-                          </div> -->
-                        </div>
+                          <input type="text" class="form-control" placeholder="Isi dengan NIK pemohon" placeholder="Isi dengan nomor induk kependudukan" name="input_nik" value="<?php echo set_value('input_nik'); ?>">
+                          <?= form_error('input_nik','<small class="text-danger pl-3">','</small>');?>
                         </div>
                         <div class="form-group">
                             <label for="nama">Tanggal Pengajuan</label>
                             <input type="date" class="form-control" name="input_tanggal" value="<?php echo date('Y-m-d'); ?>" readonly>
+                            <?= form_error('input_tanggal','<small class="text-danger pl-3">','</small>');?>
                         </div>
                         <input type="submit" name="submit" value="Simpan" class="btn btn-primary">
                         <a href="<?php echo base_url('permohonan_ktp');?>"><input type="button" class="btn btn-secondary" value="Batal"></a>

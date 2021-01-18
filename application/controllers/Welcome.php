@@ -28,8 +28,9 @@ class Welcome extends CI_Controller {
 		if (!$this->session->has_userdata('id_pegawai')) {
             redirect('auth');
         }
+        $data['warga'] = $this->db->get('warga')->result();
 		$this->load->view('header');
-		$this->load->view('dashboard');
+		$this->load->view('dashboard',$data);
 		$this->load->view('footer');
 	}
 }

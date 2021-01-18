@@ -3,14 +3,14 @@
 class Permohonan_domisili extends CI_Controller {
     
     public function __construct(){
-		parent::__construct();
-		$this->load->model('Permohonan_domisili_model');
-	}
+        parent::__construct();
+        $this->load->model('Permohonan_domisili_model');
+    }
 
     public function index() 
     {
-    	$data['permohonan_domisili'] = $this->Permohonan_domisili_model->view();
-    	$this->load->view('header');
+        $data['permohonan_domisili'] = $this->Permohonan_domisili_model->view();
+        $this->load->view('header');
         $this->load->view('permohonan_domisili/data_permohonan_domisili',$data);
         $this->load->view('footer');
     }
@@ -18,8 +18,11 @@ class Permohonan_domisili extends CI_Controller {
     public function tambah(){
         if ($this->input->post('submit')) {
             if ($this->Permohonan_domisili_model->validation("save")) {
-                $this->Permohonan_domisili_model->save();
-                redirect('permohonan_domisili');
+                if($this->Permohonan_domisili_model->cek_nik($this->input->post('input_nik'))){
+                    $this->Permohonan_domisili_model->save();
+                    redirect('permohonan_domisili');
+                }
+            $this->session->set_flashdata('pesan','<div class="alert alert-danger" role="alert">NIK tidak ada!</div>');
             }
         }
         $this->load->view('header');
@@ -30,8 +33,11 @@ class Permohonan_domisili extends CI_Controller {
     public function ubah($id){
         if ($this->input->post('submit')) {
             if ($this->Permohonan_domisili_model->validation("update")) {
-                $this->Permohonan_domisili_model->edit($id);
-                redirect('permohonan_domisili');
+                if($this->Permohonan_domisili_model->cek_nik($this->input->post('input_nik'))){
+                    $this->Permohonan_domisili_model->edit($id);
+                    redirect('permohonan_domisili');
+                }
+                $this->session->set_flashdata('pesan','<div class="alert alert-danger" role="alert">NIK tidak ada!</div>');
             }
         }
         $data['permohonan_domisili'] = $this->Permohonan_domisili_model->view_by($id);

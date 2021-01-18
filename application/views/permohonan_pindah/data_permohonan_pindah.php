@@ -38,7 +38,6 @@
                                       <td>".$data->nama_pegawai."</td>
                                       <td>
                                       <div class='btn-group'>
-                                        <a type='button' class='btn btn-primary'href='".base_url("permohonan_pindah/detail/".$data->id_ppindah)."'>Detail</a>
                                         <a type='button' class='btn btn-warning' href='".base_url("permohonan_pindah/ubah/".$data->id_ppindah)."'>Ubah</a>
                                         <a type='button' class='btn btn-danger'href='".base_url("permohonan_pindah/hapus/".$data->id_ppindah)."'>Hapus</a>
                                       </div>

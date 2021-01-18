@@ -20,13 +20,13 @@ class Permohonan_pindah extends CI_Controller {
 
     public function tambah(){
         if ($this->input->post('submit')) {
-            if($this->Permohonan_pindah_model->cek_nik($this->input->post('input_nik'))){
-                if ($this->Permohonan_pindah_model->validation("save")) {
+            if ($this->Permohonan_pindah_model->validation("save")) {
+                if($this->Permohonan_pindah_model->cek_nik($this->input->post('input_nik'))){
                     $this->Permohonan_pindah_model->save();
                     redirect('permohonan_pindah');
                 }
+                $this->session->set_flashdata('pesan','<div class="alert alert-danger" role="alert">NIK tidak ada!</div>');
             }
-            $this->session->set_flashdata('pesan','<div class="alert alert-danger" role="alert">NIK tidak ada!</div>');
         }
         $this->load->view('header');
         $this->load->view('permohonan_pindah/tambah_permohonan_pindah');
@@ -35,13 +35,13 @@ class Permohonan_pindah extends CI_Controller {
 
     public function ubah($id){
         if ($this->input->post('submit')) {
-            if($this->Permohonan_pindah_model->cek_nik($this->input->post('input_nik'))){
-                if ($this->Permohonan_pindah_model->validation("update")) {
+            if ($this->Permohonan_pindah_model->validation("update")) {
+                if($this->Permohonan_pindah_model->cek_nik($this->input->post('input_nik'))){
                     $this->Permohonan_pindah_model->edit($id);
                     redirect('permohonan_pindah');
                 }
+                $this->session->set_flashdata('pesan','<div class="alert alert-danger" role="alert">NIK tidak ada!</div>');
             }
-            $this->session->set_flashdata('pesan','<div class="alert alert-danger" role="alert">NIK tidak ada!</div>');
         }
         $data['permohonan_pindah'] = $this->Permohonan_pindah_model->view_by($id);
         $this->load->view('header');

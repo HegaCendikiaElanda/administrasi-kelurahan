@@ -9,6 +9,9 @@ class Permohonan_kk extends CI_Controller {
 
     public function index() 
     {
+        if (!$this->session->has_userdata('id_pegawai')) {
+            redirect('auth');
+        }
     	$data['permohonan_kk'] = $this->Permohonan_kk_model->view();
     	$this->load->view('header');
         $this->load->view('permohonan_kk/data_permohonan_kk',$data);
@@ -18,8 +21,11 @@ class Permohonan_kk extends CI_Controller {
     public function tambah(){
         if ($this->input->post('submit')) {
             if ($this->Permohonan_kk_model->validation("save")) {
-                $this->Permohonan_kk_model->save();
-                redirect('permohonan_kk');
+                if($this->Permohonan_kk_model->cek_nik($this->input->post('input_nik'))){
+                    $this->Permohonan_kk_model->save();
+                    redirect('permohonan_kk');
+                }
+                $this->session->set_flashdata('pesan','<div class="alert alert-danger" role="alert">NIK tidak ada!</div>');
             }
         }
         $this->load->view('header');
@@ -30,8 +36,11 @@ class Permohonan_kk extends CI_Controller {
     public function ubah($id){
         if ($this->input->post('submit')) {
             if ($this->Permohonan_kk_model->validation("update")) {
-                $this->Permohonan_kk_model->edit($id);
-                redirect('permohonan_kk');
+                if($this->Permohonan_kk_model->cek_nik($this->input->post('input_nik'))){
+                    $this->Permohonan_kk_model->edit($id);
+                    redirect('permohonan_kk');
+                }
+                $this->session->set_flashdata('pesan','<div class="alert alert-danger" role="alert">NIK tidak ada!</div>');
             }
         }
         $data['permohonan_kk'] = $this->Permohonan_kk_model->view_by($id);

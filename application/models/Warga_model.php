@@ -9,7 +9,7 @@ class Warga_model extends CI_Model
 		$this->load->library('form_validation');
 		if ($mode == "save"){
 			$this->form_validation->set_rules('input_nama','Nama','required');
-			$this->form_validation->set_rules('input_nik','NIK','required|numeric|max_length[16]|is_unique[warga.nik]');
+			$this->form_validation->set_rules('input_nik','NIK','required|numeric|exact_length[16]|is_unique[warga.nik]');
 			$this->form_validation->set_rules('input_alamat','Alamat','required');
 			$this->form_validation->set_rules('input_tempat_lahir','Tempat Lahir','required');
 			$this->form_validation->set_rules('input_tanggal_lahir','Tanggal Lahir','required');

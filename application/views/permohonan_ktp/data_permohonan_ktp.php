@@ -44,8 +44,6 @@
                                       </td>
                                     </tr>";
                                     }
-                                }else{
-                                    echo "<tr><td align='center' colspan='7'>Data Tidak Ada</td></tr>";
                                 }
                                 ?>
                             </tbody>

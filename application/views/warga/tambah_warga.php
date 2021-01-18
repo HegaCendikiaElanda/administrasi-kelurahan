@@ -37,7 +37,7 @@
                         </div>
                         <div class="form-group">
                             <label for="nama">Tanggal Lahir</label>
-                            <input type="date" class="form-control" name="input_tanggal_lahir" value="<?php date_default_timezone_set('Asia/Jakarta'); echo date('d-m-Y'); echo set_value('input_tanggal_lahir'); ?>">
+                            <input type="date" class="form-control" name="input_tanggal_lahir" value="<?php date_default_timezone_set('Asia/Jakarta'); echo set_value('input_tanggal_lahir'); ?>">
                             <?= form_error('input_tanggal_lahir','<small class="text-danger pl-3">','</small>');?>
                         </div>
                         <div class="form-group">

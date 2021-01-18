@@ -22,6 +22,7 @@
                                     <th>Tempat Lahir</th>
                                     <th>Tanggal Lahir</th>
                                     <th>Pekerjaan</th>
+                                    <th>Pendidikan</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -35,6 +36,7 @@
                                       <td>".$data->tempat_lahir."</td>
                                       <td>".$data->tanggal_lahir."</td>
                                       <td>".$data->pekerjaan."</td>
+                                      <td>".$data->pendidikan."</td>
                                       <td>".$data->status_perkawinan."</td>
                                       <td>
                                       <div class='btn-group'>
@@ -46,8 +48,6 @@
                                       </td>
                                     </tr>";
                                     }
-                                }else{
-                                    echo "<tr><td align='center' colspan='7'>Data Tidak Ada</td></tr>";
                                 }
                                 ?>
                             </tbody>
