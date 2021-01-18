@@ -13,31 +13,31 @@
                     Tambah Pegawai
                 </div>
                 <div class="card-body">
-                    <div style="color: red;"><?php echo "<h4>".validation_errors()."</h4>";?></div>
                     <?php echo form_open("pegawai/ubah/".$pegawai->id_pegawai); ?>
                     <div class="form-group">
-                        <label for="nama">Nama Lengkap</label>
-                        <input type="text" class="form-control" placeholder="Isi dengan nama lengkap" name="input_nama" value="<?php echo set_value('input_nama',$pegawai->nama); ?>" required>
+                        <label for="input_nama">Nama Lengkap</label>
+                        <input type="text" class="form-control" placeholder="Isi dengan nama lengkap" name="input_nama" value="<?php echo set_value('input_nama',$pegawai->nama); ?>">
+                        <?= form_error('input_nama','<small class="text-danger pl-3">','</small>');?>
                     </div>
                     <div class="form-group">
-                        <label for="nama">Nomor Induk Pegawai</label>
-                        <input type="text" placeholder="Isi dengan NIP" class="form-control" name="input_nip" value="<?php echo set_value('input_nip',$pegawai->nip); ?>" required>
+                        <label for="input_nik">Nomor Induk Pegawai</label>
+                        <input type="text" placeholder="Isi dengan NIP" class="form-control" name="input_nip" value="<?php echo set_value('input_nip',$pegawai->nip); ?>" readonly>
+                        <?= form_error('input_nip','<small class="text-danger pl-3">','</small>');?>
                     </div>
                     <div class="form-group">
                         <label for="nama">Username</label>
-                        <input type="text" class="form-control" placeholder="Isi dengan username" name="input_username" value="<?php echo set_value('input_username',$pegawai->username); ?>" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="nama">Password</label>
-                        <input type="password" class="form-control" placeholder="Isi dengan password" name="input_password" value="<?php echo set_value('input_password',$pegawai->password); ?>" required>
+                        <input type="text" class="form-control" placeholder="Isi dengan username" name="input_username" value="<?php echo set_value('input_username',$pegawai->username); ?>" readonly>
+                        <?= form_error('input_username','<small class="text-danger pl-3">','</small>');?>
                     </div>
                     <div class="form-group">
                         <label for="nama">Nomor Handphone</label>
-                        <input type="text" class="form-control" placeholder="Isi dengan nomor handphone yang masih aktif" name="input_no_hp" value="<?php echo set_value('input_no_hp',$pegawai->no_hp); ?>" required>
+                        <input type="text" class="form-control" placeholder="Isi dengan nomor handphone yang masih aktif" name="input_no_hp" value="<?php echo set_value('input_no_hp',$pegawai->no_hp); ?>">
+                        <?= form_error('input_no_hp','<small class="text-danger pl-3">','</small>');?>
                     </div>
                     <div class="form-group">
                         <label for="nama">E-Mail</label>
-                        <input type="email" class="form-control" placeholder="Isi dengan e-mail yang dapat dihubungi" name="input_email" value="<?php echo set_value('input_email',$pegawai->email); ?>" required>
+                        <input type="text" class="form-control" placeholder="Isi dengan e-mail yang dapat dihubungi" name="input_email" value="<?php echo set_value('input_email',$pegawai->email); ?>">
+                        <?= form_error('input_email','<small class="text-danger pl-3">','</small>');?>
                     </div>
                     <input type="submit" name="submit" value="Simpan" class="btn btn-primary">
                     <a href="<?php echo base_url('pegawai');?>"><input type="button" class="btn btn-secondary" value="Batal"></a>

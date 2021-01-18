@@ -9,19 +9,18 @@ class Pegawai_model extends CI_Model
 		$this->load->library('form_validation');
 		if ($mode == "save"){
 			$this->form_validation->set_rules('input_nama','Nama','required');
-			$this->form_validation->set_rules('input_nip','NIP','required');
-			$this->form_validation->set_rules('input_username','Username','required');
-			$this->form_validation->set_rules('input_password','Password','required');
-			$this->form_validation->set_rules('input_no_hp','Nomor Handphone','required');
-			$this->form_validation->set_rules('input_email','E-Mail','required');
+			$this->form_validation->set_rules('input_nip','NIP','required|numeric|is_unique[pegawai.nip]');
+			$this->form_validation->set_rules('input_username','Username','required|is_unique[pegawai.username]');
+			$this->form_validation->set_rules('input_password','Password','required|min_length[3]');
+			$this->form_validation->set_rules('input_no_hp','Nomor Handphone','required|numeric');
+			$this->form_validation->set_rules('input_email','E-Mail','required|valid_email');
 		}
 		if ($mode == "update"){
 			$this->form_validation->set_rules('input_nama','Nama','required');
-			$this->form_validation->set_rules('input_nip','NIP','required');
+			$this->form_validation->set_rules('input_nip','NIP','required|numeric');
 			$this->form_validation->set_rules('input_username','Username','required');
-			$this->form_validation->set_rules('input_password','Password','required');
-			$this->form_validation->set_rules('input_no_hp','Nomor Handphone','required');
-			$this->form_validation->set_rules('input_email','E-Mail','required');
+			$this->form_validation->set_rules('input_no_hp','Nomor Handphone','required|numeric');
+			$this->form_validation->set_rules('input_email','E-Mail','required|valid_email');
 		}
 		if ($this->form_validation->run()) 
 			return TRUE;
@@ -51,7 +50,6 @@ class Pegawai_model extends CI_Model
 			"nama" => $this->input->post('input_nama'),
 			"nip" => $this->input->post('input_nip'),
 			"username" => $this->input->post('input_username'),
-			"password" => $this->input->post('input_password'),
 			"no_hp" => $this->input->post('input_no_hp'),
 			"email" => $this->input->post('input_email')
 			
